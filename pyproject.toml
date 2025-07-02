@@ -1,0 +1,14 @@
+[project]
+name = "water-knn"
+version = "0.1.0"
+dependencies = [
+    "MDAnalysis",
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "argparse",
+    "pathlib",
+    "pandas",
+    "seaborn",
+    "polars",
+]

@@ -6,7 +6,7 @@ from pathlib import Path
 #  matplotlib styles
 plt.style.use(["science", "no-latex", "ieee"])
 
-
+markersize = 15
 
 
 
@@ -164,29 +164,32 @@ colors = {
 
 }
 
+
+
+
 # Styles for data
-def get_styles(label, color1="black", color2="black", markersize=4, linewidth=1):
+def get_styles(label, color1="black", color2="black", markersize=10, linewidth=1):
     styles = {
         "ccsd(t)": {
         "color": colors["ccsd(t)"],
         "linestyle": "-",
         "marker": "o",
-        "label": "CCSD(T)-MB",
+        "label": "CCSD(T)",
         "markersize": markersize,
         "linewidth": linewidth
     },
     "ccsd(t)2b": {
         "color": colors["ccsd(t)2b"],
         "linestyle": "--",
-        "marker": "$2B$",
-        "label": "CCSD(T)-2B",
+        "marker": "$\\rm 2B$",
         "markersize": markersize,
+        "label": "CCSD(T)-2B",
         "linewidth": linewidth
     },
     "ccsd(t)3b": {
         "color": colors["ccsd(t)3b"],
         "linestyle": "-.",
-        "marker": "$3B$",
+        "marker": "$\\rm 3B$",
         "label": "CCSD(T)-3B",
         "markersize": markersize,
         "linewidth": linewidth
@@ -203,7 +206,7 @@ def get_styles(label, color1="black", color2="black", markersize=4, linewidth=1)
         "color": color1,
         "linestyle": "-",
         "marker": "h",
-        "label": label,
+        # "label": "kMDCM-NN",
         "markersize": markersize,
         "linewidth": linewidth
     },
@@ -211,7 +214,7 @@ def get_styles(label, color1="black", color2="black", markersize=4, linewidth=1)
         "color": color2,
         "linestyle": "--",
         "marker": "*",
-        "label": label + " (opt.)",
+        # "label": "kMDCM-NN" + " (opt.)",
         "markersize": markersize,
         "linewidth": linewidth
     }
@@ -242,29 +245,55 @@ log_path = Path("/home/boittier/pcbach/waterlj/kparms-4.0-d594b332-5427-4d8a-9b7
 
 styles = get_styles("kMDCM-NN"+affix, color1="b", color2="b")
 data = process_data(log_path, affix=affix)
+
+print(data)
+
+
+rmse_dft = np.sqrt(np.mean((data["E1"] - data["ccsd(t)"])**2))
+rmse_dftopt = np.sqrt(np.mean((data["E2"] - data["ccsd(t)"])**2))
+
+
 relative_data = get_relative_energies(data)
 
+
+
+# plot data
 for key, value in styles.items():
     axes[0, 0].plot(data["conformer"], data[key], **value)
     axes[0, 0].set_ylim(E_ylim)
+
+# plot relative data
 for key, value in styles.items():
     axes[0, 1].plot(relative_data["conformer"], relative_data[key], **value)
     axes[0,1].set_ylim(E_ylim_relative)
 
 
-
+# load m-cc data
 log_path = "/home/boittier/pcbach/kmdcmmdimersccsdt"
 affix = ".1"
 
 styles = get_styles("kMDCM-NN"+affix, color1="b", color2="b")
+
 data = process_data(log_path, affix=affix)
+
+rmse_ccsdt = np.sqrt(np.mean((data["E1"] - data["ccsd(t)"]))**2)
+rmse_ccsdtopt = np.sqrt(np.mean((data["E2"] - data["ccsd(t)"]))**2)
+
+print("data")
+print(data)
+print(rmse_ccsdt, rmse_ccsdtopt)
+
 relative_data = get_relative_energies(data)
 
+
+# plot m-cc data
 for key, value in styles.items():
     axes[1, 0].plot(data["conformer"], data[key], **value)
     axes[1, 0].set_xticks(xticks)   
     axes[1, 0].set_xticklabels(xticklabels, rotation=45)
     axes[1, 0].set_ylim(E_ylim)
+
+# plot m-cc relative data
 for key, value in styles.items():
     axes[1, 1].plot(relative_data["conformer"], relative_data[key], **value)
     axes[1, 1].set_xticks(xticks)
@@ -272,7 +301,7 @@ for key, value in styles.items():
     axes[1, 1].set_ylim(E_ylim_relative)
 
 # legend to the left outside of the plot
-axes[1,1].legend() #loc="center left", bbox_to_anchor=(1, 0.5))
+axes[1,1].legend(loc="center left", bbox_to_anchor=(0.01, 0.75))
 
 #axis labels on left columm 
 energylabel = "$\Delta E$\n(kcal/mol)"
@@ -283,18 +312,37 @@ axes[0, 1].set_ylabel(relativeenergylabel)
 axes[1, 0].set_ylabel(energylabel)
 axes[1, 1].set_ylabel(relativeenergylabel)
 
-axes_list = ["A", "B", "C", "D"]
+axes_list = ["A1", "A2", "B1", "B2"]
 
 for ax, label in zip(axes.flatten(), axes_list):
     ax.text(1 - 0.15, 1 - 0.9, label, transform=ax.transAxes, fontsize=12, fontweight="bold")
 
+
+rmse_ccsdt = np.sqrt(np.mean((data["E1"] - data["ccsd(t)"])**2))
+rmse_ccsdtopt = np.sqrt(np.mean((data["E2"] - data["ccsd(t)"])**2))
+
 # axes[0, 0].text(1.1, 1.1, "$\omega$B97X-D", transform=axes[0, 0].transAxes, fontsize=12, fontweight="bold")
-axes[0, 0].text(0.01, 0.93, "$\omega$B97X-D/def2-QZVP", transform=axes[0, 0].transAxes, fontsize=8, fontweight="bold", color="b", alpha=0.5)
-# axes[1, 0].text(1.1, 1.1, "$\omega$B97X-D", transform=axes[1, 0].transAxes, fontsize=12, fontweight="bold")
-axes[1, 0].text(0.01, 0.93, "CCSD(T)-F12B/def2-TZV-F12", transform=axes[1, 0].transAxes, fontsize=8, fontweight="bold", color="b", alpha=0.5)
+for i in range(2):
+    label = "M-DFT" if i == 0 else "M-CC"
+    for j in range(2):
+        axes[i, j].text(0.01, 0.938,
+                 label, transform=axes[i, j].transAxes, fontsize=8, fontweight="bold", color="b", alpha=0.5)
+        # axes[1, 0].text(1.1, 1.1, "$\omega$B97X-D", transform=axes[1, 0].transAxes, fontsize=12, fontweight="bold")
+        # axes[i, j].text(0.01, 0.938, 
+        #                 "M-CC", 
+        #                 transform=axes[1, 0].transAxes, fontsize=8, fontweight="bold", color="b", alpha=0.5)
+
+
+# axes[0, 0].text(0.01, 0.938,
+#                  "M-DFT RMSE: {:.1f}/{:.1f} kcal/mol".format(rmse_dft, rmse_dftopt), transform=axes[0, 0].transAxes, fontsize=8, fontweight="bold", color="b", alpha=0.5)
+# # axes[1, 0].text(1.1, 1.1, "$\omega$B97X-D", transform=axes[1, 0].transAxes, fontsize=12, fontweight="bold")
+# axes[1, 0].text(0.01, 0.938, 
+#                 "M-CC RMSE: {:.1f}/{:.1f} kcal/mol".format(rmse_ccsdt, rmse_ccsdtopt), 
+#                 transform=axes[1, 0].transAxes, fontsize=8, fontweight="bold", color="b", alpha=0.5)
+
 
 # adjust spacing between subplots
 plt.subplots_adjust(wspace=0.2, hspace=0.05)
 
-plt.savefig("hexamers.png", dpi=300)
-plt.savefig("hexamers.pdf", dpi=300)
+plt.savefig("pngs/hexamers.png", dpi=300)
+plt.savefig("pdfs/hexamers.pdf", dpi=300)

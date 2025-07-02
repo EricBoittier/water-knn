@@ -1,0 +1,114 @@
+/home/boittier/pcbach/waterlj/kparms-4.0-d594b332-5427-4d8a-9b79-64f1ac10ed1a/ccsdt-cyclic_boat2.xyz.inp.log
+/home/boittier/pcbach/waterlj/kparms-4.0-d594b332-5427-4d8a-9b79-64f1ac10ed1a/ccsdt-bag.xyz.inp.log
+/home/boittier/pcbach/waterlj/kparms-4.0-d594b332-5427-4d8a-9b79-64f1ac10ed1a/ccsdt-cyclic_boat1.xyz.inp.log
+/home/boittier/pcbach/waterlj/kparms-4.0-d594b332-5427-4d8a-9b79-64f1ac10ed1a/ccsdt-book2.xyz.inp.log
+/home/boittier/pcbach/waterlj/kparms-4.0-d594b332-5427-4d8a-9b79-64f1ac10ed1a/ccsdt-prism.xyz.inp.log
+/home/boittier/pcbach/waterlj/kparms-4.0-d594b332-5427-4d8a-9b79-64f1ac10ed1a/ccsdt-book1.xyz.inp.log
+/home/boittier/pcbach/waterlj/kparms-4.0-d594b332-5427-4d8a-9b79-64f1ac10ed1a/ccsdt-cyclic_chair.xyz.inp.log
+/home/boittier/pcbach/waterlj/kparms-4.0-d594b332-5427-4d8a-9b79-64f1ac10ed1a/ccsdt-cage.xyz.inp.log
+         E1        E2         conformer
+0 -41.11792 -41.99262  cyclic_boat2.xyz
+1 -43.54833 -45.30545           bag.xyz
+2 -41.04013 -41.82724  cyclic_boat1.xyz
+3 -44.64091 -45.74970         book2.xyz
+4 -46.24941 -46.90563         prism.xyz
+5 -44.36475 -45.27392         book1.xyz
+6 -41.89378 -42.50682  cyclic_chair.xyz
+7 -46.27182 -47.14234          cage.xyz
+         E1        E2         conformer               cat
+0 -41.11792 -41.99262  cyclic_boat2.xyz  cyclic_boat2.xyz
+1 -43.54833 -45.30545           bag.xyz           bag.xyz
+2 -41.04013 -41.82724  cyclic_boat1.xyz  cyclic_boat1.xyz
+3 -44.64091 -45.74970         book2.xyz         book2.xyz
+4 -46.24941 -46.90563         prism.xyz         prism.xyz
+5 -44.36475 -45.27392         book1.xyz         book1.xyz
+6 -41.89378 -42.50682  cyclic_chair.xyz  cyclic_chair.xyz
+7 -46.27182 -47.14234          cage.xyz          cage.xyz
+test_df
+         E1        E2     conformer               cat
+0 -41.11792 -41.99262  cyclic_boat2  cyclic_boat2.xyz
+1 -43.54833 -45.30545           bag           bag.xyz
+2 -41.04013 -41.82724  cyclic_boat1  cyclic_boat1.xyz
+3 -44.64091 -45.74970         book2         book2.xyz
+4 -46.24941 -46.90563         prism         prism.xyz
+5 -44.36475 -45.27392         book1         book1.xyz
+6 -41.89378 -42.50682  cyclic_chair  cyclic_chair.xyz
+7 -46.27182 -47.14234          cage          cage.xyz
+data
+   ccsd(t)  ccsd(t)2b  ccsd(t)3b  mbpol     conformer
+6   -48.24     -38.94     -47.64 -48.17         prism
+7   -47.95     -38.47     -47.44 -47.85          cage
+1   -47.52     -36.02     -46.40 -47.00         book1
+2   -47.26     -36.13     -46.24 -46.81         book2
+0   -46.80     -35.28     -45.63 -46.30           bag
+5   -46.47     -32.71     -44.49 -45.63  cyclic_chair
+3   -45.44     -32.30     -43.64 -44.76  cyclic_boat1
+4   -45.36     -32.24     -43.58 -44.76  cyclic_boat2
+   ccsd(t)  ccsd(t)2b  ccsd(t)3b  ...        E1        E2               cat
+0   -48.24     -38.94     -47.64  ... -46.24941 -46.90563         prism.xyz
+1   -47.95     -38.47     -47.44  ... -46.27182 -47.14234          cage.xyz
+2   -47.52     -36.02     -46.40  ... -44.36475 -45.27392         book1.xyz
+3   -47.26     -36.13     -46.24  ... -44.64091 -45.74970         book2.xyz
+4   -46.80     -35.28     -45.63  ... -43.54833 -45.30545           bag.xyz
+5   -46.47     -32.71     -44.49  ... -41.89378 -42.50682  cyclic_chair.xyz
+6   -45.44     -32.30     -43.64  ... -41.04013 -41.82724  cyclic_boat1.xyz
+7   -45.36     -32.24     -43.58  ... -41.11792 -41.99262  cyclic_boat2.xyz
+
+[8 rows x 8 columns]
+/home/boittier/pcbach/kmdcmmdimersccsdt/ccsdt-book1.xyz.inp.log.1
+/home/boittier/pcbach/kmdcmmdimersccsdt/ccsdt-cage.xyz.inp.log.1
+/home/boittier/pcbach/kmdcmmdimersccsdt/ccsdt-cyclic_boat2.xyz.inp.log.1
+/home/boittier/pcbach/kmdcmmdimersccsdt/ccsdt-prism.xyz.inp.log.1
+/home/boittier/pcbach/kmdcmmdimersccsdt/ccsdt-bag.xyz.inp.log.1
+/home/boittier/pcbach/kmdcmmdimersccsdt/ccsdt-book2.xyz.inp.log.1
+/home/boittier/pcbach/kmdcmmdimersccsdt/ccsdt-cyclic_boat1.xyz.inp.log.1
+/home/boittier/pcbach/kmdcmmdimersccsdt/ccsdt-cyclic_chair.xyz.inp.log.1
+         E1        E2             conformer
+0 -41.55371 -43.11829         book1.xyz.inp
+1 -44.02049 -45.14904          cage.xyz.inp
+2 -37.98710 -39.86730  cyclic_boat2.xyz.inp
+3 -44.35299 -45.43260         prism.xyz.inp
+4 -40.34314 -43.29735           bag.xyz.inp
+5 -41.86289 -43.33180         book2.xyz.inp
+6 -37.89034 -39.73669  cyclic_boat1.xyz.inp
+7 -38.61696 -40.52918  cyclic_chair.xyz.inp
+         E1        E2             conformer  cat
+0 -41.55371 -43.11829         book1.xyz.inp  NaN
+1 -44.02049 -45.14904          cage.xyz.inp  NaN
+2 -37.98710 -39.86730  cyclic_boat2.xyz.inp  NaN
+3 -44.35299 -45.43260         prism.xyz.inp  NaN
+4 -40.34314 -43.29735           bag.xyz.inp  NaN
+5 -41.86289 -43.33180         book2.xyz.inp  NaN
+6 -37.89034 -39.73669  cyclic_boat1.xyz.inp  NaN
+7 -38.61696 -40.52918  cyclic_chair.xyz.inp  NaN
+test_df
+         E1        E2     conformer  cat
+0 -41.55371 -43.11829         book1  NaN
+1 -44.02049 -45.14904          cage  NaN
+2 -37.98710 -39.86730  cyclic_boat2  NaN
+3 -44.35299 -45.43260         prism  NaN
+4 -40.34314 -43.29735           bag  NaN
+5 -41.86289 -43.33180         book2  NaN
+6 -37.89034 -39.73669  cyclic_boat1  NaN
+7 -38.61696 -40.52918  cyclic_chair  NaN
+data
+   ccsd(t)  ccsd(t)2b  ccsd(t)3b  mbpol     conformer
+6   -48.24     -38.94     -47.64 -48.17         prism
+7   -47.95     -38.47     -47.44 -47.85          cage
+1   -47.52     -36.02     -46.40 -47.00         book1
+2   -47.26     -36.13     -46.24 -46.81         book2
+0   -46.80     -35.28     -45.63 -46.30           bag
+5   -46.47     -32.71     -44.49 -45.63  cyclic_chair
+3   -45.44     -32.30     -43.64 -44.76  cyclic_boat1
+4   -45.36     -32.24     -43.58 -44.76  cyclic_boat2
+data
+   ccsd(t)  ccsd(t)2b  ccsd(t)3b  mbpol     conformer        E1        E2  cat
+0   -48.24     -38.94     -47.64 -48.17         prism -44.35299 -45.43260  NaN
+1   -47.95     -38.47     -47.44 -47.85          cage -44.02049 -45.14904  NaN
+2   -47.52     -36.02     -46.40 -47.00         book1 -41.55371 -43.11829  NaN
+3   -47.26     -36.13     -46.24 -46.81         book2 -41.86289 -43.33180  NaN
+4   -46.80     -35.28     -45.63 -46.30           bag -40.34314 -43.29735  NaN
+5   -46.47     -32.71     -44.49 -45.63  cyclic_chair -38.61696 -40.52918  NaN
+6   -45.44     -32.30     -43.64 -44.76  cyclic_boat1 -37.89034 -39.73669  NaN
+7   -45.36     -32.24     -43.58 -44.76  cyclic_boat2 -37.98710 -39.86730  NaN
+6.051547500000002 4.322218750000002
